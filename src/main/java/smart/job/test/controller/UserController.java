@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import smart.job.test.model.dto.UserRequest;
 import smart.job.test.model.dto.UserResponse;
+import smart.job.test.model.exceptions.UserAlreadyExistExcepcion;
 import smart.job.test.service.UserService;
 import smart.job.test.utils.UsuarioMapper;
 
@@ -23,7 +24,11 @@ public class UserController {
     @PostMapping
     public ResponseEntity<UserResponse> createUser(
             @RequestBody UserRequest request
-    ) throws Exception {
-        return ResponseEntity.ok(UsuarioMapper.toDtoResponse(userService.crearUsuario(UsuarioMapper.toEntity(request))));
+    ) throws UserAlreadyExistExcepcion {
+        return ResponseEntity.ok(
+                UsuarioMapper.toDtoResponse(
+                        userService.crearUsuario(UsuarioMapper.toEntity(request))
+                )
+        );
     }
 }
