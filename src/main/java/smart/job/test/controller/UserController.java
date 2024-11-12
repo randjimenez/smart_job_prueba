@@ -9,7 +9,7 @@ import smart.job.test.model.dto.UserRequest;
 import smart.job.test.model.dto.UserResponse;
 import smart.job.test.model.exceptions.UserAlreadyExistExcepcion;
 import smart.job.test.service.UserService;
-import smart.job.test.utils.UsuarioMapper;
+import smart.job.test.utils.UserMapper;
 
 @RestController
 @RequestMapping("api/users")
@@ -26,8 +26,8 @@ public class UserController {
             @RequestBody UserRequest request
     ) throws UserAlreadyExistExcepcion {
         return ResponseEntity.ok(
-                UsuarioMapper.toDtoResponse(
-                        userService.crearUsuario(UsuarioMapper.toEntity(request))
+                UserMapper.toDtoResponse(
+                        userService.crearUsuario(UserMapper.toEntity(request))
                 )
         );
     }

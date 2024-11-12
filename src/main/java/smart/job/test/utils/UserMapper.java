@@ -7,7 +7,7 @@ import smart.job.test.model.entity.UserEntity;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class UsuarioMapper {
+public class UserMapper {
 
     public static UserResponse toDtoResponse(UserEntity userEntity) {
         if (userEntity == null) {
@@ -37,6 +37,7 @@ public class UsuarioMapper {
         userEntity.setLastLogin(date);
         userEntity.setToken(UUID.randomUUID());
         userEntity.setIsEnabled(true);
+        userEntity.setPhones(PhoneMapper.ToPhoneEntityList(userRequest.getPhones()));
 
         return userEntity;
     }
