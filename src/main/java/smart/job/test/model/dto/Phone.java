@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Telefono {
+public class Phone {
 
-    private String numero;
-    private String codigoCiudad;
-    private String codigoPais;
+    private String number;
+    private String cityCode;
+    private String countryCode;
 }

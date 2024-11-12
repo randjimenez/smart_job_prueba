@@ -13,5 +13,5 @@ public class UserRequest {
 
     private String password;
 
-    private List<Telefono> phones;
+    private List<Phone> phones;
 }
